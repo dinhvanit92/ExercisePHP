@@ -1,7 +1,7 @@
 # DEPLOY ExercisePHP
 **1. Settup enviroment Nginx Ubuntu**
 
-Config nginx `vhocphp.com.conf` in `/etc/nginx/sites-avalible`
+Config nginx `vhocphp.com.conf` in `/etc/nginx/sites-availble`
 
 ```
 server {
@@ -31,7 +31,7 @@ server {
 Link to /etc/nginx/sites-enabled:
 
 ```
-sudo ln -s /etc/nginx/sites-avalible/vhocphp.com /etc/nginx/sites-enabled
+sudo ln -s /etc/nginx/sites-available/vhocphp.com /etc/nginx/sites-enabled
 ```
 
 Create file local: `mkdir /var/www/vhocphp.com/public_html`
