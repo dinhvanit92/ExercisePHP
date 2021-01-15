@@ -1,5 +1,6 @@
 # DEPLOY ExercisePHP
 **1. Settup enviroment Nginx Ubuntu**
+
 Config nginx `vhocphp.com.conf` in `/etc/nginx/sites-avalible`
 
 ```
