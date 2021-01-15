@@ -51,6 +51,32 @@ add domain:
 
 databse file:  `/var/www/vhocphp.com/public_html/produc.sql`
 
+config database is: `/var/www/vhocphp.com/public_html/config/config.php`
+
+```
+<?php
+
+const PATH_ROOT =  __DIR__ . '/../';
+
+const BAR_URL = __DIR__ . '/public/';
+
+const URL = 'http://vhocphp.com/';
+
+//Config Database
+
+const DB_HOST = 'localhost';
+
+const DB_NAME = 'product';
+
+const DB_USER = 'root';
+
+const DB_PASSWORD = 'vanit@1992';
+
+const SHOW_ERRORS = true;
+
+```
+Thank you so much!
+
 
 
 
