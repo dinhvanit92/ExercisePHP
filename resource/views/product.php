@@ -53,15 +53,25 @@
         <div class="row">
 
             <div class="col-lg-3">
-                <h4 class="my-4">Welcome: <?php $user = $_SESSION['user'];
-                                            if (isset($data)) {
-                                                echo $user['name'];
-                                            }  ?></h4>
-                <div class="list-group">
-                    <a href="<?= URL ?>store" class="list-group-item">Xem giỏ hàng</a>
-                    <a href="<?= URL ?>history" class="list-group-item">Danh sách đã đặt hàng</a>
-                    <a href="<?= URL ?>logout" class="list-group-item">Đăng xuất</a>
-                </div>
+                <h4 class="my-4"><?php
+                                    if ($_SESSION['user']) {
+                                        $user = $_SESSION['user'];
+                                        echo 'Welcome: ' . $user['name'];
+                                    } else {
+                                        echo '<a href="' . URL . '"store" >Đăng nhập</a>';
+                                    }  ?></h4>
+                <?php
+                if (isset($_SESSION['user'])) { ?>
+                    <div class="list-group">
+                        <a href="<?= URL ?>store" class="list-group-item">Xem giỏ hàng (<?php if (isset($_SESSION['cart'])) {
+                                                                                            echo count($_SESSION['cart']);
+                                                                                        } else {
+                                                                                            echo 0;
+                                                                                        } ?>) sản phẩm</a>
+                        <a href="<?= URL ?>history" class="list-group-item">Danh sách đã đặt hàng</a>
+                        <a href="<?= URL ?>logout" class="list-group-item">Đăng xuất</a>
+                    </div>
+                <?php } ?>
 
             </div>
             <!-- /.col-lg-3 -->

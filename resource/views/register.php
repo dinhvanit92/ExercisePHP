@@ -42,7 +42,7 @@
                     </div>
                     <input type="submit" value="SIGNUP">
                 </form>
-                <p>Don't have an Account? <a href="<?= URL ?>"> Login Now!</a></p>
+                <p>Bạn đã có tài khoản? <a href="<?= URL ?>"> Đăng nhập ngay!</a></p>
             </div>
         </div>
         <!-- copyright -->

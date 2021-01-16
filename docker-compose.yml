@@ -1,0 +1,53 @@
+version: '3.9'
+
+networks:
+  www-network:
+services:
+  mysql:
+    image: mysql:8
+    volumes:
+      - ./docker_system/database/db_data:/var/lib/mysql
+      - ./docker_system/database/db_backup:/var/lib/mysql-db-backup
+    environment:
+      MYSQL_DATABASE: 'product'
+      MYSQL_USER: 'dinhvan'
+      MYSQL_PASSWORD: 'vanit@1992'
+      MYSQL_ROOT_PASSWORD: 'vanit@1992'
+    ports:
+      - '4306:3306'
+    networks:
+      - www-network
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    ports:
+      - '2020:80'
+    environment:
+      MYSQL_USER: 'dinhvan'
+      MYSQL_PASSWORD: 'vanit@1992'
+      MYSQL_ROOT_PASSWORD: 'vanit@1992'
+    links:
+      - mysql:db
+    networks:
+      - www-network
+  nginx:
+    build:
+      context: ./docker_system/nginx
+    ports:
+      - '80:80'
+    volumes:
+      - ./:/var/www
+      - ./docker_system/nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - www-network
+    depends_on:
+      - 'mysql'
+  php-fpm:
+    build:
+      context: ./docker_system/php-fpm/
+    volumes:
+      - ./:/var/www
+    working_dir: /var/www
+    networks:
+      - www-network
+    depends_on:
+      - 'mysql'

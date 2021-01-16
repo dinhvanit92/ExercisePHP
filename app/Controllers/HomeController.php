@@ -8,7 +8,11 @@ class HomeController
 {
     public function index()
     {
-        require_once(PATH_ROOT . 'resource/views/index.php');
+        if (isset($_SESSION['user'])) {
+            Header("Location:" . URL . 'product');
+        } else {
+            require_once(PATH_ROOT . 'resource/views/index.php');
+        }
     }
     public function login()
     {
@@ -19,7 +23,6 @@ class HomeController
             $_SESSION['user'] = $user[0];
             Header("Location:" . URL . 'product');
         } else {
-            // echo 'Đăng nhập thất bại';
             Header("Location:" . URL);
         }
     }
@@ -28,7 +31,6 @@ class HomeController
         if ($_SESSION['user']) {
             Header("Location:" . URL . 'product');
         } else {
-            // echo 'Đăng nhập thất bại';
             require_once(PATH_ROOT . 'resource/views/register.php');
         }
     }
@@ -45,6 +47,7 @@ class HomeController
     public function logout()
     {
         unset($_SESSION['user']);
+        unset($_SESSION['cart']);
         Header("Location:" . URL);
     }
 }

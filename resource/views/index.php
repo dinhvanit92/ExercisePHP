@@ -38,7 +38,7 @@
                     </div>
                     <input type="submit" value="LOGIN">
                 </form>
-                <p>Bạn quên mật khẩu? <a href="#">Lấy lại ngay</a></p>
+                <p>Bạn chưa có tài khoản <a href="<?= URL ?>register">Đăng ký ngay</a></p>
             </div>
         </div>
         <!-- copyright -->

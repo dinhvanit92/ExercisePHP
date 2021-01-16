@@ -33,8 +33,6 @@ abstract class Model
         }
         $addkey = implode(', ', $listkey);
         $addvalue = implode(', ', $listvalue);
-        // echo "INSERT INTO $table ($addkey) VALUES ($addvalue)";
-        // die();
         $sql = "INSERT INTO $table ($addkey) VALUES ($addvalue)";
         $update->exec($sql);
         return 1;
@@ -45,9 +43,7 @@ abstract class Model
         for ($i = 0; $i < count($row); $i++) {
             $compare .= $row[$i] . ' = ' . "'" . $addcompare[$i] . "'" . ' && ';
         }
-        // var_dump($compare);
         $compare = rtrim($compare, ' && ');
-        // echo "SELECT * FROM $table WHERE ($compare)";
         $dsn = 'mysql:host=' . DB_HOST . ';dbname=' . DB_NAME . ';charset=utf8';
         $update = new PDO($dsn, DB_USER, DB_PASSWORD);
         $query = $update->prepare("SELECT * FROM $table WHERE ($compare)");

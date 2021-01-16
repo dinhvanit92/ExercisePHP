@@ -12,3 +12,4 @@ $router->post('/payment', 'ProductController@payment');
 $router->get('/thankyou', 'ProductController@thankyou');
 $router->get('/history', 'ProductController@history');
 $router->get('/logout', 'HomeController@logout');
+$router->post('/delete', 'ProductController@delete');

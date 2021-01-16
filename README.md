@@ -1,5 +1,18 @@
 # DEPLOY ExercisePHP
-**1. Settup enviroment Nginx Ubuntu**
+
+**1. Settup enviroment in Docker**
+Cd to docker-compose file:
+
+```
+docke-compose up --build
+
+```
+
+View myshop: http://localhost
+
+_Note: my settup docker nginx at ports 80, if your computer added port 80, please change port at nginx docker-compose.yml_
+
+**2. Settup enviroment in Nginx Ubuntu**
 
 Config nginx `vhocphp.com.conf` in `/etc/nginx/sites-availble`
 
@@ -13,7 +26,7 @@ server {
      index index.php index.html index.htm;
 
      location / {
-        try_files $uri $uri/ /index.php?$args; 
+        try_files $uri $uri/ /index.php?$args;
     }
 
     location = /favicon.ico { access_log off; log_not_found off; }
@@ -28,6 +41,7 @@ server {
     }
 }
 ```
+
 Link to /etc/nginx/sites-enabled:
 
 ```
@@ -49,7 +63,7 @@ add domain:
 
 **2. Setup database;**
 
-databse file:  `/var/www/vhocphp.com/public_html/produc.sql`
+databse file: `/var/www/vhocphp.com/public_html/produc.sql`
 
 config database is: `/var/www/vhocphp.com/public_html/config/config.php`
 
@@ -60,7 +74,7 @@ const PATH_ROOT =  __DIR__ . '/../';
 
 const BAR_URL = __DIR__ . '/public/';
 
-const URL = 'http://vhocphp.com/';
+const URL = 'http://localhost/';
 
 //Config Database
 
@@ -75,9 +89,5 @@ const DB_PASSWORD = 'vanit@1992';
 const SHOW_ERRORS = true;
 
 ```
+
 Thank you so much!
-
-
-
-
-
