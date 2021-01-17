@@ -86,10 +86,9 @@ class ProductController
         $data = Orders::where(['user_id'], [$_SESSION['user']['id']], 'orders');
         require_once(PATH_ROOT . 'resource/views/history.php');
     }
-    public function delete()
+    public function delete($id)
     {
-        if (isset($_POST['delete'])) {
-            $id = $_POST['delete'];
+        if (isset($id)) {
             unset($_SESSION['cart'][$id]);
             Header("Location:" . URL . 'store');
         }

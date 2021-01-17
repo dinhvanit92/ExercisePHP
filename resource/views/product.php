@@ -34,7 +34,7 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Danh sách đơn đã đặt</a>
+                        <a class="nav-link" href="<?= URL ?>history">Danh sách đơn đã đặt</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Dịch Vụ</a>

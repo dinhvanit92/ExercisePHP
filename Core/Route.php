@@ -29,11 +29,14 @@ class Route
         // kiểm tra xem URL có chứa param không. VD: post/{id}
         if (preg_match_all('/({([a-zA-Z]+)})/', $url, $params)) {
             // thay thế param bằng (.+). VD: post/{id} -> post/(.+)
+            // var_dump($params)  . '<pre>';
             $url = preg_replace('/({([a-zA-Z]+)})/', '(.+)', $url);
+            // echo $url;
         }
 
         // Thay thế tất cả các kí tự / bằng ký tự \/ (regex) trong URL.
         $url = str_replace('/', '\/', $url);
+        // die();
 
         // Tạo một route mới
         $route = [
@@ -42,6 +45,7 @@ class Route
             'action' => $action,
             'params' => $params[2]
         ];
+        // var_dump($route) . '<pre>';
 
         // Thêm route vào router.
         array_push($this->__routes, $route);

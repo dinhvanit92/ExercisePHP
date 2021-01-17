@@ -8,6 +8,7 @@ class HomeController
 {
     public function index()
     {
+        // echo $id;
         if (isset($_SESSION['user'])) {
             Header("Location:" . URL . 'product');
         } else {

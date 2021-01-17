@@ -48,7 +48,7 @@
                         <td><?= $value['quantity'] ?></td>
                         <td><?= number_format($value['price'] * $value['quantity']) ?> VNĐ</td>
                         <td>
-                            <form action="/delete" method="post"><button type="submit" name="delete" value="<?= $value['id'] ?>" class="btn btn-danger btn-sm">delete</button></form>
+                            <a href="<?= URL ?>delete/<?= $value['id'] ?>"><span class="badge bg-danger">Delete</span></a>
                         </td>
                     </tr>
                 <?php $t += ($value['price'] * $value['quantity']);
