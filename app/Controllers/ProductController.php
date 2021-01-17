@@ -57,7 +57,7 @@ class ProductController
         if (isset($_SESSION['user'])) {
             if (isset($_POST['submit'])) {
                 if (isset($_SESSION['cart'])) {
-                    $cart = json_encode($_SESSION['cart']);
+                    $cart = json_encode($_SESSION['cart'], JSON_UNESCAPED_UNICODE);
                     $order_item = [
                         'order_code' => $_SESSION['user']['name'] . md5($cart),
                         'order_carts'       => $cart,
