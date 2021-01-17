@@ -1,11 +1,11 @@
 # DEPLOY ExercisePHP
 
 **1. Settup enviroment in Docker**
-Cd to docker-compose file:
+
+Cd to docker-compose file and run:
 
 ```
 docker-compose up --build
-
 ```
 
 View myshop: http://localhost
