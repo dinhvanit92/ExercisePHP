@@ -4,7 +4,7 @@
 Cd to docker-compose file:
 
 ```
-docke-compose up --build
+docker-compose up --build
 
 ```
 
